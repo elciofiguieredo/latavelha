@@ -1,4 +1,4 @@
-latavelha-wptheme
-=================
+Greenpeace Lata Velha
+=====================
 
-Greenpeace Lata Velha - Mapping old drilling platforms on Pre-salt region
+Mapping old drilling platforms on Pre-salt region

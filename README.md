@@ -3,4 +3,4 @@ Greenpeace Lata Velha
 
 Mapping old drilling platforms on Pre-salt region.
 
-Requires [https://github.com/miguelpeixe/mappress](MapPress) parent theme.
+Requires [MapPress](https://github.com/miguelpeixe/mappress) parent theme.

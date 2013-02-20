@@ -27,7 +27,7 @@
 		<h1>
 			<a href="<?php echo home_url('/'); ?>" title="<?php bloginfo('name'); ?>">
 				<?php bloginfo('name'); ?>
-				<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" />
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" />
 			</a>
 		</h1>
 	</header>

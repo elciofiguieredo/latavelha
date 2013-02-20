@@ -9,7 +9,7 @@ include(TEMPLATEPATH . '/mappress/mappress.php');
  * Theme setup
  */
 function latavelha_setup() {
-
+	include(TEMPLATEPATH . '/inc/post-types.php');
 }
 add_action('after_setup_theme', 'latavelha_setup');
 

@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
-<?php mappress_map(28); ?>
+<div id="map">
+	<?php mappress_map(28); ?>
+</div>
 
 <?php get_footer(); ?>

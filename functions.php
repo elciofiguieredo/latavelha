@@ -21,4 +21,45 @@ function latavelha_scripts() {
 }
 add_action('wp_enqueue_scripts', 'latavelha_scripts');
 
+// register geocode metabox
+add_action('add_meta_boxes', 'latavelha_geocode_metaboxes');
+function latavelha_geocode_metaboxes() {
+	// platform
+	add_meta_box(
+		'geocoding-address',
+		__('Address and geolocation', 'latavelha'),
+		'geocoding_inner_custom_box',
+		'platform',
+		'advanced',
+		'high'
+	);
+	// accident
+	add_meta_box(
+		'geocoding-address',
+		__('Address and geolocation', 'latavelha'),
+		'geocoding_inner_custom_box',
+		'accident',
+		'advanced',
+		'high'
+	);
+	// oil well
+	add_meta_box(
+		'geocoding-address',
+		__('Address and geolocation', 'latavelha'),
+		'geocoding_inner_custom_box',
+		'oil-well',
+		'advanced',
+		'high'
+	);
+}
+
+// markers query
+add_filter('mappress_markers_query', 'latavelha_markers_query');
+function latavelha_markers_query($query) {
+	if(is_front_page())
+		$query['post_type'] = array('post', 'platform', 'accident', 'oil-well');
+
+	return $query;
+}
+
 ?>

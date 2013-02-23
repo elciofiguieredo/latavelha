@@ -72,8 +72,23 @@ function latavelha_markers_icon($marker) {
 			'width' => 32,
 			'height' => 47
 		);
+		if(get_post_meta($post->ID, 'old_platform', true)) {
+			$marker['url'] = get_stylesheet_directory_uri() . '/img/icons/mapa_plataforma_velha.png';
+		}
 	}
 	return $marker;
+}
+
+// lata velha marker class
+add_filter('mappress_marker_class', 'latavelha_markers_class');
+function latavelha_markers_class($class) {
+	global $post;
+	if(get_post_type() == 'platform') {
+		if(get_post_meta($post->ID, 'old_platform', true)) {
+			$class[] = 'old-platform';
+		}
+	}
+	return $class;
 }
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-$conf = array('postID' => $post->ID, 'sidebar' => false);
+$conf = array('postID' => $post->ID);
 $conf = json_encode($conf);
 ?>
 

@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <section id="map">
+	<h2 class="map-title"><?php _e('Platforms', 'latavelha'); ?></h2>
 	<?php mappress_featured_map(); ?>
 </section>
 	

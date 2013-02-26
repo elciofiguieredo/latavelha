@@ -5,6 +5,7 @@
  */
 function latavelha_setup() {
 	include(STYLESHEETPATH . '/inc/post-types.php');
+	include(STYLESHEETPATH . '/inc/taxonomies.php');
 }
 add_action('after_setup_theme', 'latavelha_setup');
 

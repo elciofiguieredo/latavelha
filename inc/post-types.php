@@ -124,5 +124,5 @@ function register_cpt_accident() {
         'capability_type' => 'post'
     );
 
-    register_post_type( 'accidents', $args );
+    register_post_type( 'accident', $args );
 }

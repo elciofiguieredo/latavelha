@@ -4,19 +4,22 @@
 	<h2 class="map-title"><?php _e('Platforms', 'latavelha'); ?></h2>
 	<?php mappress_featured_map(); ?>
 </section>
-	
-<div class="container">
-	<div class="twelve columns">
-		<section id="platforms" class="content-section clearfix">
-			<h2><?php _e('See platforms', 'latavelha'); ?></h2>
+
+<section id="platforms" class="content-section clearfix">
+	<div class="container">
+		<div class="twelve columns">
+			<h2><?php _e('Oldests platforms', 'latavelha'); ?></h2>
 			<?php query_posts('post_type=platform&posts_per_page=6'); ?>
 			<?php get_template_part('loop', 'platform'); ?>
 			<?php wp_reset_query(); ?>
-		</section>
+		</div>
 	</div>
+</section>
+	
+<div class="container">
 	<div class="five columns">
 		<section id="news" class="content-section clearfix">
-			<h2><?php _e('News', 'latavelha'); ?></h2>
+			<h2><?php _e('Latest news', 'latavelha'); ?></h2>
 			<?php query_posts('posts_per_page=4'); ?>
 			<?php get_template_part('loop', 'post'); ?>
 			<?php wp_reset_query(); ?>
@@ -25,7 +28,7 @@
 	</div>
 	<div class="six columns offset-by-one">
 		<section id="accidents" class="content-section clearfix">
-			<h2><?php _e('Accidents', 'latavelha'); ?></h2>
+			<h2><?php _e('Recent accidents', 'latavelha'); ?></h2>
 			<?php query_posts('post_type=accident&posts_per_page=4'); ?>
 			<?php get_template_part('loop', 'accident'); ?>
 			<?php wp_reset_query(); ?>

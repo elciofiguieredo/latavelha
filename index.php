@@ -20,6 +20,7 @@
 			<?php query_posts('posts_per_page=4'); ?>
 			<?php get_template_part('loop', 'post'); ?>
 			<?php wp_reset_query(); ?>
+			<p><a class="button gray" href="#"><?php _e('View all news', 'latavelha'); ?></a></p>
 		</section>
 	</div>
 	<div class="six columns offset-by-one">
@@ -28,6 +29,7 @@
 			<?php query_posts('post_type=accident&posts_per_page=4'); ?>
 			<?php get_template_part('loop', 'accident'); ?>
 			<?php wp_reset_query(); ?>
+			<p><a class="button darkred" href="#"><?php _e('View all accidents', 'latavelha'); ?></a></p>
 		</section>
 	</div>
 </div>

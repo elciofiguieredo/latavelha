@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo('charset'); ?>" />
@@ -24,12 +25,22 @@
 </head>
 <body <?php body_class(get_bloginfo('language')); ?>>
 	<header id="masthead">
-		<h1>
-			<a href="<?php echo home_url('/'); ?>" title="<?php bloginfo('name'); ?>">
-				<?php bloginfo('name'); ?>
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" />
-			</a>
-		</h1>
+		<div class="container">
+			<div class="four columns">
+				<p class="desc">Plataformas de perfuração de petróleo com mais de 30 anos podem apresentar danos e riscos severos ao meio ambiente</p>
+			</div>
+			<div class="four columns">
+				<h1>
+					<a href="<?php echo home_url('/'); ?>" title="<?php bloginfo('name'); ?>">
+						<?php bloginfo('name'); ?>
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" />
+					</a>
+				</h1>
+			</div>
+			<div class="four columns">
+				<p class="desc">O Greenpeace mapeou as plataformas antigas da região do pré-sal e apresenta seus dados e histórico de acidentes</p>
+				<p class="navigate"><a href="#">Navegue nas plataformas</a></p>
+			</div>
 	</header>
 	<nav id="main-nav" class="clearfix">
 		<ul>

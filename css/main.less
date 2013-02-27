@@ -59,11 +59,15 @@
 	margin-bottom: 20px;
 	background: #fff url(../img/rusty-bg.png);
 	.box-shadow(0 2px 4px rgba(0,0,0,0.3));
+	.transition(all .2s ease-in-out);
 	header {
 		padding: 0 20px;
 	}
 	section {
 		padding: 0 20px;
+	}
+	&:hover {
+		.box-shadow(0 3px 5px rgba(0,0,0,0.3));
 	}
 }
 
@@ -128,21 +132,38 @@ header#masthead {
 	position: relative;
 	z-index: 3;
 	h1 {
-		margin: 0;
+		margin: 30px 0;
 		padding: 0;
 		a {
 			text-indent: -9999px;
-			position: absolute;
 			display: block;
 			width: 305px;
 			height: 283px;
-			left: 50%;
-			top: 50%;
-			margin-left: -141px;
-			margin-top: -152px;
 			line-height: 0px;
 			img {
 				display: block;
+			}
+		}
+	}
+	p.desc {
+		font-weight: 800;
+		margin: 160px 0 0;
+		font-size: 13px;
+		line-height: 22px;
+		text-align: justify;
+		color: #111;
+		text-shadow: 0 0 10px rgba(255,255,255,1);
+	}
+	p.navigate {
+		margin-top: 50px;
+		text-align: right;
+		font-size: 15px;
+		a {
+			font-weight: 800;
+			color: @darkred;
+			text-decoration: none;
+			&:hover {
+				color: #000;
 			}
 		}
 	}
@@ -181,11 +202,11 @@ header#masthead {
 
 #map {
 	width: 100%;
-	height: 800px;
+	height: 500px;
 	margin: 0 0 30px;
 	position: relative;
 	background: url(../img/map-bg.jpg);
-	border-bottom: 20px solid #1f1f1f;
+	border-bottom: 20px solid #0f0f0f;
 	.map-title {
 		position: absolute;
 		left: 10%;
@@ -218,6 +239,7 @@ header#masthead {
 		margin-top: -30px;
 		padding-bottom: 20px;
 		.box-shadow(~"0 2px 3px rgba(0,0,0,.9), inset 0 50px 100px rgba(0,0,0,.6)");
+		border-bottom: 5px solid #333;
 		h2 {
 			color: #f0f0f0;
 			text-shadow: 1px 1px 1px #222;

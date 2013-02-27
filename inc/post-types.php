@@ -45,7 +45,7 @@ function register_cpt_platform() {
     register_post_type( 'platform', $args );
 }
 
-add_action('init', 'register_cpt_oilwell');
+//add_action('init', 'register_cpt_oilwell');
 
 function register_cpt_oilwell() {
     $labels = array( 

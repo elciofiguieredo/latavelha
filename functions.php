@@ -6,6 +6,9 @@
 function latavelha_setup() {
 	include(STYLESHEETPATH . '/inc/post-types.php');
 	include(STYLESHEETPATH . '/inc/taxonomies.php');
+
+	// importers
+	//include(STYLESHEETPATH . '/inc/platform_importer.php');
 }
 add_action('after_setup_theme', 'latavelha_setup');
 
@@ -21,6 +24,9 @@ function latavelha_scripts() {
 	wp_enqueue_style('main', get_stylesheet_directory_uri() . '/css/main.css', array('skeleton', 'font-opensans', 'font-blackops'), '0.0.1.1');
 }
 add_action('wp_enqueue_scripts', 'latavelha_scripts');
+
+// register lata velha metaboxes
+include(STYLESHEETPATH . '/metaboxes/metaboxes.php');
 
 // register geocode metabox
 add_action('add_meta_boxes', 'latavelha_geocode_metaboxes');
@@ -73,7 +79,7 @@ function latavelha_markers_icon($marker) {
 			'width' => 32,
 			'height' => 47
 		);
-		if(get_post_meta($post->ID, 'old_platform', true)) {
+		if(latavelha_is_platform_old()) {
 			$marker['url'] = get_stylesheet_directory_uri() . '/img/icons/mapa_plataforma_velha.png';
 		}
 	}
@@ -85,11 +91,13 @@ add_filter('mappress_marker_class', 'latavelha_markers_class');
 function latavelha_markers_class($class) {
 	global $post;
 	if(get_post_type() == 'platform') {
-		if(get_post_meta($post->ID, 'old_platform', true)) {
+		if(latavelha_is_platform_old()) {
 			$class[] = 'old-platform';
 		}
 	}
 	return $class;
 }
+
+include(STYLESHEETPATH . '/inc/platform-functions.php');
 
 ?>

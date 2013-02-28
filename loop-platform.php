@@ -8,10 +8,30 @@
 							<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
 						</header>
 						<section class="summary clearfix">
-							<p class="icon person">Diamond Offshore</p>
-							<p class="icon gear">Petrobrás</p>
-							<p class="icon time">35 anos</p>
-							<p class="icon warning">5 acidentes</p>
+							<div class="metadata">
+								<?php
+								$owner = get_the_terms($post->ID, 'platform-owner');
+								if($owner) {
+									echo '<p class="icon person">';
+									$owner = array_shift($owner);
+									echo '<a href="' . get_term_link($owner) . '">' . $owner->name . '</a>';
+									echo '</p>';
+								}
+								?>
+								<?php
+								$operator = get_the_terms($post->ID, 'platform-operator');
+								if($operator) {
+									echo '<p class="icon gear">';
+									$operator = array_shift($operator);
+									echo '<a href="' . get_term_link($operator) . '">' . $operator->name . '</a>';
+									echo '</p>';
+								}
+								?>
+							</div>
+							<div class="info">
+								<p class="icon time"><?php echo latavelha_get_platform_age() . ' ' . __('years', 'latavelha'); ?></p>
+								<p class="icon warning">0 <?php _e('accidents', 'latavelha'); ?></p>
+							</div>
 						</section>
 						<footer class="clearfix">
 							<p>

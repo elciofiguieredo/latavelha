@@ -8,7 +8,7 @@
 <section id="platforms" class="content-section clearfix">
 	<div class="container">
 		<div class="twelve columns">
-			<a class="button" href="#"><?php _e('View all platforms', 'latavelha'); ?></a>
+			<a class="button dark" href="#"><?php _e('View all platforms', 'latavelha'); ?></a>
 			<h2><?php _e('Oldests platforms', 'latavelha'); ?></h2>
 			<?php
 			$platform_args = array(

@@ -29,7 +29,9 @@
 								?>
 							</div>
 							<div class="info">
-								<p class="icon time"><?php echo latavelha_get_platform_age() . ' ' . __('years', 'latavelha'); ?></p>
+								<?php if(latavelha_get_platform_age()) : ?>
+									<p class="icon time"><?php echo latavelha_get_platform_age() . ' ' . __('years', 'latavelha'); ?></p>
+								<?php endif; ?>
 								<p class="icon warning">0 <?php _e('accidents', 'latavelha'); ?></p>
 							</div>
 						</section>

@@ -14,35 +14,6 @@ function latavelha_platform_status_add_meta_box() {
 	);
 }
 
-function latavelha_get_platform_available_status() {
-	$available_status = array();
-	$available_status[] = array(
-		'id' => '',
-		'name' => __('None', 'latavelha')
-	);
-	$available_status[] = array(
-		'id' => 'drilling',
-		'name' => __('Drilling', 'latavelha'),
-	);
-	$available_status[] = array(
-		'id' => 'inspection',
-		'name' => __('Inspection', 'latavelha')
-	);
-	$available_status[] = array(
-		'id' => 'workover',
-		'name' => __('Workover', 'latavelha')
-	);
-	$available_status[] = array(
-		'id' => 'modification',
-		'name' => __('Modification', 'latavelha')
-	);
-	$available_status[] = array(
-		'id' => 'coldstacked',
-		'name' => __('Cold stacked', 'latavelha')
-	);
-	return apply_filters('latavelha_platform_available_status', $available_status);
-}
-
 function latavelha_platform_status_inner_custom_box($post) {
 	$current_status = get_post_meta($post->ID, 'platform_status', true);
 	$available_status = latavelha_get_platform_available_status();

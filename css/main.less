@@ -136,6 +136,7 @@ a {
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+	font-weight: 800;
 }
 
 header#masthead {
@@ -219,16 +220,21 @@ header#masthead {
 	margin: 0 0 30px;
 	position: relative;
 	background: url(../img/map-bg.jpg);
-	border-bottom: 20px solid #0f0f0f;
-	.map-title {
-		position: absolute;
-		left: 10%;
-		top: 0;
-		z-index: 9999;
-		font-family: "Black Ops One";
-		color: #fffee9;
-		background: #300a07;
-		padding: 14px 18px;
+	.container {
+		height: 0;
+		position: relative;
+		z-index: 999;
+		.map-title {
+			position: absolute;
+			font-family: "Black Ops One";
+			font-weight: normal;
+			color: #fffee9;
+			background: #300a07;
+			padding: 14px 18px;
+			font-size: 35px;
+			line-height: 40px;
+			float: left;
+		}
 	}
 	.map-container {
 		width: 100%;
@@ -253,7 +259,7 @@ header#masthead {
 		}
 	}
 	.map-widgets {
-		left: 10%;
+		left: 20px;
 		right: auto;
 		top: auto;
 		bottom: 20px;
@@ -275,12 +281,16 @@ header#masthead {
 		padding-bottom: 10px;
 		color: #333;
 	}
-	&#platforms {
+	&.platform {
+		border-top: 20px solid #0f0f0f;
 		background: #333 url(../img/rusty-bg.png);
 		margin-top: -30px;
 		padding-bottom: 20px;
 		.box-shadow(~"0 2px 3px rgba(0,0,0,.9), inset 0 50px 100px rgba(0,0,0,.6)");
 		border-bottom: 5px solid #333;
+		&.archive {
+			margin-bottom: 0;
+		}
 		.button {
 			width: auto;
 			padding: 10px 12px;
@@ -293,16 +303,30 @@ header#masthead {
 			margin: 30px 0 20px;
 			text-transform: none;
 			font-size: 18px;
+			a {
+				color: #f0f0f0;
+				opacity: .3;
+				text-decoration: none;
+				&:hover {
+					opacity: 1;
+				}
+			}
+			.sep {
+				font-size: 8px;
+				line-height: 16px;
+				padding: 0 5px;
+				opacity: .3;
+			}
 		}
 	}
-	&#news {
+	&.post {
 		h2 {
 			color: #888;
 			border-bottom: 1px solid #888;
 			margin-bottom: 20px;
 		}
 	}
-	&#accidents {
+	&.accident {
 		h2 {
 			color: @darkred;
 			border-bottom: 1px solid @darkred;
@@ -324,6 +348,7 @@ header#masthead {
 	.box-shadow(0 0 4px rgba(0,0,0,0.2));
 	h2 {
 		font-family: "Black Ops One";
+		font-weight: normal;
 		color: #333;
 		margin: 0 0 30px;
 		line-height: 35px;
@@ -378,6 +403,7 @@ header#masthead {
 			h4 {
 				color: #fffee9;
 				font-family: "Black Ops One";
+				font-weight: normal;
 			}
 		}
 	}
@@ -396,6 +422,7 @@ header#masthead {
 			margin-bottom: 10px;
 			a {
 				font-family: "Black Ops One";
+				font-weight: normal;
 				font-size: 20px;
 				color: @darkred;
 				text-decoration: none;
@@ -489,6 +516,27 @@ header#masthead {
 	}
 }
 
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.container {
+		.loop.platform {
+			ul {
+				li {
+					width: 100%;
+					margin: 0 0 20px;
+					.summary {
+						height: auto;
+						.metadata,
+						.info {
+							width: 50%;
+							float: left;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 .loop.news {
 	article {
 		margin-bottom: 20px;
@@ -519,6 +567,7 @@ header#masthead {
 		h3 {
 			a {
 				font-family: "Black Ops One";
+				font-weight: normal;
 				color: @darkred;
 				font-size: 20px;
 				text-decoration: none;
@@ -553,6 +602,222 @@ header#masthead {
 			p {
 				margin: 0;
 			}
+		}
+	}
+}
+
+/*
+ * Navigation
+ */
+
+.navigation {
+	.wp-paginate {
+		float: right;
+		margin-bottom: 30px;
+		.current {
+			background: #333;
+			border-color: #333;
+			.box-shadow(0 0 2px rgba(0,0,0,0));
+		}
+		li {
+			span,
+			a {
+				padding: 5px 8px;
+				.border-radius(3px);
+			}
+		}
+	}
+}
+
+/* 
+ * Single content
+ */
+
+.single-platform {
+	#map {
+		height: 350px;
+		.map-widgets {
+			display: none !important;
+		}
+	}
+	.platform-content {
+		.platform-main-info {
+			.border-radius(0 0 5px 5px);
+			.box-shadow(0 2px 3px 2px rgba(0,0,0,0.2));
+			background: url(../img/rusty-bg.png);
+			margin-top: -30px;
+			padding-top: 25px;
+			margin-bottom: 30px;
+		}
+		.platform-header {
+			margin-top: -180px;
+			h1 {
+				background: #222;
+				color: @beige;
+				padding: 10px 15px;
+				margin: 0 0 0 20px;
+				font-family: "Black Ops One";
+				font-weight: normal;
+				font-size: 30px;
+				line-height: 40px;
+				float: left;
+			}
+			.main-meta {
+				background: #eeeee7 url(../img/rusty-bg.png);
+				padding: 30px;
+				height: 95px;
+				.box-sizing(border-box);
+				.border-radius(5px 5px 0 0);
+				.box-shadow(0 -11px 10px 5px rgba(0,0,0,0.2));
+				p {
+					width: 50%;
+					height: 50px;
+					float: left;
+					padding-left: 70px;
+					.box-sizing(border-box);
+					background-repeat: no-repeat;
+					background-position: left center;
+					margin: 0;
+					&.owner {
+						background-image: url(../img/icons/person-big.png);
+					}
+					&.operator {
+						background-image: url(../img/icons/gear-big.png);
+					}
+					span {
+						font-weight: 800;
+						display: block;
+						font-size: 18px;
+						color: @darkred;
+						margin: 10px 0 5px;
+					}
+				}
+			}
+		}
+		.platform-data {
+			padding: 15px 30px;
+			.platform-status {
+				//.border-radius(5px);
+				padding: 0 0 10px;
+				border-bottom: 1px dotted #bbbbb7;
+				h3 {
+					font-weight: 800;
+					font-size: 20px;
+					line-height: 24px;
+					float: left;
+					width: 50%;
+					margin: 0;
+					color: #333;
+				}
+				p.status-title {
+					float: left;
+					line-height: 24px;
+					font-weight: 600;
+					margin: 0;
+					//color: darken(@beige, 5%);
+					&:before {
+						content: '';
+						float: left;
+						width: 14px;
+						height: 14px;
+						margin: 4px 15px 0 0;
+						.border-radius(7px);
+						background: #555;
+						.box-shadow(~"0 0 6px 1px #666, inset 0 0 2px 1px #505050");
+					}
+					&.green {
+						&:before {
+							background: #0a0;
+							.box-shadow(~"0 0 6px 1px #0c0, inset 0 0 2px 1px #090");
+						}
+					}
+				}
+			}
+			.platform-data-table {
+				margin: 0 0 20px;
+				table {
+					width: 100%;
+					tr {
+						border-bottom: 1px dotted #ccccc7;
+						th {
+							width: 50%;
+							font-weight: 600;
+							text-align: left;
+							padding: 15px 0;
+							font-size: 13px;
+						}
+						td {
+							padding: 15px 0;
+						}
+						&:last-child {
+							border: 0;
+							td,
+							th {
+								padding-bottom: 0;
+
+							}
+						}
+					}
+				}
+			}
+		}
+		.related-content {
+			margin-top: -85px;
+			margin-bottom: 30px;
+			h2 {
+				font-weight: 800;
+				font-size: 24px;
+				line-height: 30px;
+			}
+			h3 {
+				font-weight: 800;
+				font-size: 18px;
+				line-height: 24px;
+			}
+			ul {
+				li {
+					border-bottom: 1px dotted #ccccc7;
+				}
+			}
+			.loop.news {
+				article {
+					margin: 0;
+					border: 0;
+					section {
+						margin: 0;
+					}
+				}
+			}
+			.links {
+				ul {
+					li {
+						margin: 5px 0;
+					}
+				}
+				h3 {
+					font-size: 12px;
+					line-height: 18px;
+					font-weight: normal;
+					a {
+						color: #666;
+						text-decoration: none;
+						&:hover {
+							color: #333;
+						}
+					}
+				}
+			}
+			> div:first-child {
+				h2 {
+					font-size: 26px;
+					line-height: 32px;
+					color: @beige;
+					text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+					margin-bottom: 50px;
+				}
+			}
+		}
+		.multimedia {
 		}
 	}
 }

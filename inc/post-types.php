@@ -4,6 +4,34 @@
 REGISTER POST TYPES
 */
 
+// set news archive page
+
+function latavelha_news_archive_rule($wp_rewrite) {
+    $news_rule = array('news$' => 'index.php?news=1');
+
+    $wp_rewrite->rules = $news_rule + $wp_rewrite->rules;
+}
+add_action('generate_rewrite_rules', 'latavelha_news_archive_rule', 1);
+
+function latavelha_news_query_vars($public_query_vars) {
+    $public_query_vars[] = 'news';
+    return $public_query_vars;
+}
+add_action('query_vars', 'latavelha_news_query_vars');
+
+function latavelha_news_redirect() {
+    global $wp_query;
+    if($wp_query->get('news')) {
+        include(STYLESHEETPATH . '/news.php');
+        exit;
+    }
+}
+add_action('template_redirect', 'latavelha_news_redirect');
+
+function latavelha_get_news_archive_link() {
+    return home_url('/news/');
+}
+
 add_action('init', 'register_cpt_platform');
 
 function register_cpt_platform() {

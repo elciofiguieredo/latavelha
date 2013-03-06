@@ -31,11 +31,11 @@ function register_taxonomy_accident_types() {
         'show_admin_column' => true,
         'hierarchical' => true,
 
-        'rewrite' => array('slug' => 'accident-type', 'with_front' => false),
+        'rewrite' => array('slug' => 'accidents/type', 'with_front' => false),
         'query_var' => true
     );
 
-    register_taxonomy( 'accidents/type', array('accident'), $args );
+    register_taxonomy( 'accident-type', array('accident'), $args );
 }
 
 add_action( 'init', 'register_taxonomy_platform_owner' );

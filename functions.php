@@ -8,7 +8,8 @@ function latavelha_setup() {
 	include(STYLESHEETPATH . '/inc/post-types.php');
 
 	// importers
-	//include(STYLESHEETPATH . '/inc/platform_importer.php');
+	//include(STYLESHEETPATH . '/inc/platform-importer.php');
+	//include(STYLESHEETPATH . '/inc/accident-importer.php');
 }
 add_action('after_setup_theme', 'latavelha_setup');
 
@@ -58,6 +59,31 @@ function latavelha_geocode_metaboxes() {
 		'advanced',
 		'high'
 	);
+}
+
+function latavelha_map($title = false, $single = true) {
+	if($single)
+		$tag = 'h1';
+	else
+		$tag = 'h2';
+	?>
+	<section id="map">
+		<div class="container"><div class="twelve columns">
+			<?php if($title) : ?>
+				<<?php echo $tag; ?> class="map-title"><?php echo $title; ?></<?php echo $tag; ?>>
+			<?php endif; ?>
+		</div></div>
+		<?php mappress_featured_map(); ?>
+	</section>
+	<?php
+}
+
+function latavelha_get_archive_title() {
+	if(is_post_type_archive()) {
+		return post_type_archive_title('', false);
+	} elseif(is_tax()) {
+		return 'Teste';
+	}
 }
 
 // markers query

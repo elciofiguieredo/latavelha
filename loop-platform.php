@@ -35,7 +35,7 @@
 						</section>
 						<footer class="clearfix">
 							<p>
-								<a class="icon info" href="#"><?php _e('more', 'latavelha'); ?></a>
+								<a class="icon info" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php _e('more', 'latavelha'); ?></a>
 								<a class="icon location" href="#"><?php _e('locate on the map', 'latavelha'); ?></a>
 							</p>
 						</footer>

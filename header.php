@@ -39,7 +39,7 @@
 			</div>
 			<div class="four columns">
 				<p class="desc">O Greenpeace mapeou as plataformas antigas da região do pré-sal e apresenta seus dados e histórico de acidentes</p>
-				<p class="navigate"><a href="#">Navegue nas plataformas</a></p>
+				<p class="navigate"><a href="<?php echo get_post_type_archive_link('platform'); ?>" title="<?php _e('Navigate through the platforms', 'latavelha'); ?>"><?php _e('Navigate through the platforms', 'latavelha'); ?></a></p>
 			</div>
 	</header>
 	<nav id="main-nav" class="clearfix">

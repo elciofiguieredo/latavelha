@@ -35,7 +35,7 @@ function latavelha_get_platform_status($post_id = false) {
 	return false;
 }
 
-function latavelha_get_platform_status_name($post_id) {
+function latavelha_get_platform_status_name($post_id = false) {
 	global $post;
 	$post_id = $post_id ? $post_id : $post->ID;
 	$status = latavelha_get_platform_status($post_id);
@@ -45,7 +45,7 @@ function latavelha_get_platform_status_name($post_id) {
 	return false;
 }
 
-function latavelha_get_platform_status_class($post_id) {
+function latavelha_get_platform_status_class($post_id = false) {
 	global $post;
 	$post_id = $post_id ? $post_id : $post->ID;
 	$status = latavelha_get_platform_status($post_id);
@@ -90,7 +90,7 @@ function latavelha_get_platform_available_status() {
 	return apply_filters('latavelha_platform_available_status', $available_status);
 }
 
-function latavelha_get_platform_related_args($args, $post_id = false) {
+function latavelha_get_platform_related_args($args = false, $post_id = false) {
 	global $post;
 	$post_id = $post_id ? $post_id : $post->ID;
 	$related_args = array(
@@ -101,5 +101,8 @@ function latavelha_get_platform_related_args($args, $post_id = false) {
 			)
 		)
 	);
-	return array_merge($related_args, $args);
+	if($args)
+		$related_args = array_merge($related_args, $args);
+
+	return $related_args;
 }

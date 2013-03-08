@@ -16,6 +16,7 @@ function latavelha_accident_general_info_add_meta_box() {
 
 function latavelha_accident_general_info_inner_custom_box($post) {
 	$link = get_post_meta($post->ID, 'accident_link', true);
+	$date = get_post_meta($post->ID, 'accident_date', true);
 	$notes = get_post_meta($post->ID, 'accident_notes', true);
 	?>
 	<div id="general-info-metabox">
@@ -23,6 +24,10 @@ function latavelha_accident_general_info_inner_custom_box($post) {
 		<p>
 			<label for="accident_link_input"><?php _e('Link', 'latavelha'); ?></label>
 			<input type="text" id="accident_link_input" name="accident_link" size="70" value="<?php echo $link; ?>" />
+		</p>
+		<p>
+			<label for="accident_date_input"><?php _e('Date', 'latavelha'); ?></label>
+			<input type="text" id="accident_date_input" name="accident_link" size="20" value="<?php echo $date; ?>" />
 		</p>
 		<p>
 			<label for="accident_notes_input"><?php _e('Notes', 'latavelha'); ?></label><br/>
@@ -44,6 +49,9 @@ function latavelha_accident_general_info_save_postdata($post_id) {
 
 	if(isset($_REQUEST['accident_link']))
 		update_post_meta($post_id, 'accident_link', $_REQUEST['accident_link']);
+
+	if(isset($_REQUEST['accident_date']))
+		update_post_meta($post_id, 'accident_link', $_REQUEST['accident_date']);
 
 	if(isset($_REQUEST['accident_notes']))
 		update_post_meta($post_id, 'accident_notes', $_REQUEST['accident_notes']);

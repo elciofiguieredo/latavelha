@@ -36,8 +36,8 @@
 	<div class="six columns offset-by-one">
 		<section id="accidents" class="accident content-section clearfix">
 			<h2><?php _e('Recent accidents', 'latavelha'); ?></h2>
-			<?php query_posts('post_type=accident&posts_per_page=4'); ?>
-			<?php get_template_part('loop', 'accident'); ?>
+			<?php query_posts('post_type=accident&posts_per_page=3'); ?>
+			<?php get_template_part('loop', 'accident-details'); ?>
 			<?php wp_reset_query(); ?>
 			<p><a class="button darkred" href="<?php echo get_post_type_archive_link('accident'); ?>"><?php _e('View all accidents', 'latavelha'); ?></a></p>
 		</section>

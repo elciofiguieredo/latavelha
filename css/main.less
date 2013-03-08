@@ -557,51 +557,129 @@ header#masthead {
 }
 
 .loop.accident {
-	article {
-		margin-bottom: 20px;
-		padding-bottom: 20px;
-		border-bottom: 1px solid #ddd;
-		position: relative;
-		padding-left: 70px;
-		//.cute-box();
-		h3 {
-			a {
+	li {
+		height: 110px;
+		margin-bottom: 30px;
+		article {
+			position: relative;
+			h3 {
+				font-size: 18px;
+				line-height: 22px;
+				min-height: 30px;
+				position: relative;
+				padding-left: 40px;
+				a {
+					font-family: "Black Ops One";
+					font-weight: normal;
+					color: @darkred;
+					font-size: 18px;
+					line-height: 22px;
+					text-decoration: none;
+				}
+			}
+			.date-container {
+				width: 50px;
+				margin-top: 5px;
+				float: left;
+			}
+			span.date {
+				display: inline;
+				padding: 0 5px;
+				background: #333;
+				font-size: 14px;
+				line-height: 18px;
+				color: @beige;
 				font-family: "Black Ops One";
 				font-weight: normal;
-				color: @darkred;
-				font-size: 20px;
-				text-decoration: none;
-				span.date {
-					background: #333;
-					font-size: 16px;
-					line-height: 20px;
-					padding: 0 5px;
-					color: @beige;
-					margin-left: 10px;
-				}
+			}
+			.offset {
+				padding-left: 70px;
 			}
 		}
 		header {
+			position: relative;
 			.icon {
-				position: absolute;
+				width: 50px;
 				top: 0;
-				bottom: 20px;
-				left: 10px;
-				width: 70px;
+				bottom: 0;
+				left: 0;
+				float: left;
+				position: absolute;
 				background-position:left center;
 				background-repeat: no-repeat;
-				&.blowout {
+				background-image: url(../img/icons/generic-accident.png);
+				&.blowout,
+				&.incendio,
+				&.falha-blow-out-preventer-bop {
 					background-image: url(../img/icons/blowout.png);
 				}
-				&.leak {
+				&.leak,
+				&.vazamento {
 					background-image: url(../img/icons/leak.png);
 				}
 			}
 		}
-		section {
-			p {
-				margin: 0;
+	}
+	&.details {
+		li {
+			height: auto;
+			article {
+				margin-bottom: 20px;
+				padding-bottom: 20px;
+				border-bottom: 1px solid #ddd;
+				padding-left: 70px;
+				h3 {
+					padding-left: 0;
+					float: none;
+					a {
+						font-family: "Black Ops One";
+						font-weight: normal;
+						color: @darkred;
+						font-size: 20px;
+						text-decoration: none;
+						span.date {
+							background: #333;
+							font-size: 16px;
+							line-height: 20px;
+							padding: 0 5px;
+							color: @beige;
+							margin-left: 10px;
+							float: none;
+						}
+					}
+				}
+				header {
+					position: static;
+					.icon {
+						float: none;
+						top: 0;
+						bottom: 20px;
+						left: 10px;
+						width: 70px;
+						height: auto;
+					}
+				}
+				section {
+					display: block;
+					p {
+						margin: 0;
+					}
+				}
 			}
+		}
+	}
+}
+
+.loop.attachments {
+	li {
+		width: 25%;
+		margin: 0;
+		padding: 5px;
+		.box-sizing(border-box);
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
 		}
 	}
 }
@@ -816,6 +894,17 @@ header#masthead {
 					margin-bottom: 50px;
 				}
 			}
+		}
+		.single-section {
+			margin-bottom: 30px;
+			h2 {
+				font-family: "Black Ops One";
+				font-weight: normal;
+				font-size: 26px;
+				line-height: 30px;
+			}
+		}
+		.accidents {
 		}
 		.multimedia {
 		}

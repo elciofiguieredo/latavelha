@@ -127,8 +127,24 @@
 						</div>
 					</aside>
 				</div>
-				<section class="multimedia twelve columns alpha omega">
-					<h2><?php _e('Multimedia', 'latavelha'); ?></h2>
+				<?php
+				/* Accidents query */
+				$args = latavelha_get_platform_related_args(array('posts_per_page'=>-1,'post_type'=>'accident'));
+				query_posts($args);
+				if(have_posts()) : ?>
+					<section class="accidents single-section clearfix">
+						<div class="twelve columns alpha omega">
+							<h2><?php _e('Accidents', 'latavelha'); ?></h2>
+							<?php get_template_part('loop', 'accident'); ?>
+						</div>
+					</section>
+				<?php endif; ?>
+				<?php wp_reset_query(); ?>
+				<section class="multimedia single-section clearfix">
+					<div class="twelve columns alpha omega">
+						<h2><?php _e('Multimedia', 'latavelha'); ?></h2>
+						<?php get_template_part('loop', 'attachment'); ?>
+					</div>
 				</section>
 			</article>
 		</div>

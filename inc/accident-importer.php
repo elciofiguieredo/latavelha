@@ -18,6 +18,7 @@ function latavelha_accident_importer() {
 		$data['meta'] = array();
 		$data['meta']['accident_notes'] = $accident[6];
 		$data['meta']['accident_link'] = $accident[4];
+		$data['meta']['accident_date'] = $accident[2];
 		$platform = get_page_by_title($accident[3], 'OBJECT', 'platform');
 		if($platform)
 			$data['meta']['platform_id'] = $platform->ID;

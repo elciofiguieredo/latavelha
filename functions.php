@@ -9,7 +9,7 @@ function latavelha_setup() {
 
 	// importers
 	//include(STYLESHEETPATH . '/inc/platform-importer.php');
-	include(STYLESHEETPATH . '/inc/accident-importer.php');
+	//include(STYLESHEETPATH . '/inc/accident-importer.php');
 }
 add_action('after_setup_theme', 'latavelha_setup');
 
@@ -26,6 +26,7 @@ function latavelha_scripts() {
 	wp_enqueue_style('isotope', get_stylesheet_directory_uri() . '/css/isotope.css', array('main'), '1.5.25');
 
 	//scripts
+	wp_enqueue_script('latavelha', get_stylesheet_directory_uri() . '/js/latavelha.js', array('jquery'), '0.0.3');
 	wp_enqueue_script('isotope', get_stylesheet_directory_uri() . '/lib/jquery.isotope.min.js', array('jquery'), '1.5.25');
 	wp_enqueue_script('imagesloaded', get_stylesheet_directory_uri() . '/lib/jquery.imagesloaded.min.js', array('jquery'), '2.1.1');
 }

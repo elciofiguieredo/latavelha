@@ -45,6 +45,17 @@ function latavelha_get_platform_status_name($post_id = false) {
 	return false;
 }
 
+function latavelha_get_platform_geometry($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$lat = get_post_meta($post_id, 'geocode_latitude', true);
+	$lon = get_post_meta($post_id, 'geocode_longitude', true);
+	if($lat && $lon) {
+		return array($lon, $lat);
+	}
+	return array(0,0);
+}
+
 function latavelha_get_platform_status_class($post_id = false) {
 	global $post;
 	$post_id = $post_id ? $post_id : $post->ID;

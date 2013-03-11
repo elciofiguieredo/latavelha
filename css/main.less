@@ -286,6 +286,15 @@ header#masthead {
 	}
 }
 
+.single {
+	#map {
+		height: 350px;
+		.map-widgets {
+			display: none !important;
+		}
+	}
+}
+
 @-webkit-keyframes map-point-highlight {
 	0% {
 		margin-top: -2020px;
@@ -745,25 +754,17 @@ header#masthead {
  * Single content
  */
 
-.single-platform {
-	#map {
-		height: 350px;
-		.map-widgets {
-			display: none !important;
-		}
-	}
-	.platform-content {
-		.platform-main-info {
-			.border-radius(0 0 5px 5px);
-			.box-shadow(0 2px 3px 2px rgba(0,0,0,0.2));
-			background: url(../img/rusty-bg.png);
-			margin-top: -30px;
-			padding-top: 25px;
-			margin-bottom: 30px;
-		}
-		.platform-header {
-			margin-top: -180px;
-			h1 {
+ .single {
+ 	.map-content-box {
+		.border-radius(0 0 5px 5px);
+		.box-shadow(0 2px 3px 2px rgba(0,0,0,0.2));
+		background: url(../img/rusty-bg.png);
+		margin-top: -30px;
+		padding-top: 25px;
+		margin-bottom: 30px;
+ 		.header {
+ 			margin-top: -180px;
+ 			h1 {
 				background: #222;
 				color: @beige;
 				padding: 10px 15px;
@@ -773,11 +774,10 @@ header#masthead {
 				font-size: 30px;
 				line-height: 40px;
 				float: left;
-			}
-			.main-meta {
+ 			}
+ 			.main-meta {
 				background: #eeeee7 url(../img/rusty-bg.png);
 				padding: 30px;
-				height: 95px;
 				.box-sizing(border-box);
 				.border-radius(5px 5px 0 0);
 				.box-shadow(0 -11px 10px 5px rgba(0,0,0,0.2));
@@ -804,8 +804,13 @@ header#masthead {
 						margin: 10px 0 5px;
 					}
 				}
-			}
-		}
+ 			}
+ 		}
+ 	}
+ }
+
+.single-platform {
+	.platform-content {
 		.platform-data {
 			padding: 15px 30px;
 			.platform-status {

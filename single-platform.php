@@ -6,8 +6,8 @@
 	<div class="container">
 		<div class="twelve columns">
 			<article class="platform-content">
-				<div class="seven columns alpha platform-main-info">
-					<header class="platform-header">
+				<div class="seven columns alpha map-content-box">
+					<header class="platform-header header">
 						<div class="clearfix">
 							<h1><?php the_title(); ?></h1>
 						</div>
@@ -140,10 +140,7 @@
 					</section>
 				<?php endif; ?>
 				<?php wp_reset_query(); ?>
-				<section class="multimedia single-section clearfix">
-					<div class="twelve columns alpha omega">
-						<h2><?php _e('Multimedia', 'latavelha'); ?></h2>
-						<?php get_template_part('loop', 'attachment'); ?>
+						<?php get_template_part('section', 'attachments'); ?>
 					</div>
 				</section>
 			</article>

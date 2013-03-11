@@ -35,6 +35,9 @@ add_action('wp_enqueue_scripts', 'latavelha_scripts');
 // register lata velha metaboxes
 include(STYLESHEETPATH . '/metaboxes/metaboxes.php');
 
+include(STYLESHEETPATH . '/inc/platform-functions.php');
+include(STYLESHEETPATH . '/inc/accident-functions.php');
+
 // register geocode metabox
 add_action('add_meta_boxes', 'latavelha_geocode_metaboxes');
 function latavelha_geocode_metaboxes() {
@@ -93,19 +96,17 @@ function latavelha_get_archive_title() {
 }
 
 // markers query
-add_filter('mappress_markers_query', 'latavelha_markers_query');
-function latavelha_markers_query($query) {
-	if(is_front_page())
-		$query['post_type'] = array('post', 'platform', 'accident');
-
-	return $query;
+add_action('pre_get_posts', 'latavelha_main_query', 1);
+function latavelha_main_query($query) {
+	if($query->is_home() && $query->is_main_query())
+		$query->set('post_type', 'platform');
 }
 
 // lata velha marker icons
 add_filter('mappress_marker_icon', 'latavelha_markers_icon');
 function latavelha_markers_icon($marker) {
 	global $post;
-	if(get_post_type($post->ID) == 'platform') {
+	if(get_post_type() == 'platform') {
 		$marker = array(
 			'url' => get_stylesheet_directory_uri() . '/img/icons/mapa_plataforma_nova.png',
 			'width' => 32,
@@ -114,6 +115,12 @@ function latavelha_markers_icon($marker) {
 		if(latavelha_is_platform_old()) {
 			$marker['url'] = get_stylesheet_directory_uri() . '/img/icons/mapa_plataforma_velha.png';
 		}
+	} elseif(get_post_type() == 'accident') {
+		$marker = array(
+			'url' => get_stylesheet_directory_uri() . '/img/markers/accident_' . latavelha_get_accident_type_icon() . '.png',
+			'width' => 32,
+			'height' => 48
+		);
 	}
 	return $marker;
 }
@@ -130,7 +137,19 @@ function latavelha_markers_class($class) {
 	return $class;
 }
 
-include(STYLESHEETPATH . '/inc/platform-functions.php');
+add_filter('mappress_marker_coordinates', 'latavelha_accident_coordinates');
+function latavelha_accident_coordinates($coordinates) {
+	global $post;
+	if(get_post_type() == 'accident') {
+		if($coordinates[0] === 0) {
+			$platform = latavelha_get_accident_platform();
+			if($platform) {
+				$coordinates = latavelha_get_platform_geometry($platform->ID);
+			}
+		}
+	}
+	return $coordinates;
+}
 
 function latavelha_accident_order($query) {
 	$vars = &$query->query_vars;

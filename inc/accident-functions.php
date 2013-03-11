@@ -42,3 +42,25 @@ function latavelha_get_accident_type_name($post_id = false) {
 	$type = latavelha_get_accident_type($post_id);
 	return $type->name;
 }
+
+function latavelha_get_accident_date($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	return get_post_meta($post_id, 'accident_date', true);
+}
+
+function latavelha_get_accident_notes($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$notes = get_post_meta($post_id, 'accident_notes', true);
+	if($notes)
+		return apply_filters('the_content', $notes);
+	return false;
+}
+
+function latavelha_get_accident_link($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$link = get_post_meta($post_id, 'accident_link', true);
+	return $link;
+}

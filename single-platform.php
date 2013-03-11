@@ -24,7 +24,7 @@
 							<?php endif; ?>
 						</div>
 					</header>
-					<section class="platform-data">
+					<section class="platform-data main-section">
 						<?php if(latavelha_get_platform_status()) : ?>
 							<div class="platform-status clearfix">
 								<h3><?php _e('Current status', 'latavelha'); ?></h3>
@@ -140,9 +140,7 @@
 					</section>
 				<?php endif; ?>
 				<?php wp_reset_query(); ?>
-						<?php get_template_part('section', 'attachments'); ?>
-					</div>
-				</section>
+				<?php get_template_part('section', 'attachments'); ?>
 			</article>
 		</div>
 	</div>

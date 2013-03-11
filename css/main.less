@@ -806,13 +806,92 @@ header#masthead {
 				}
  			}
  		}
+ 		.main-section {
+			padding: 15px 30px;
+			p {
+				font-size: 13px;
+				line-height: 20px;
+			}
+		}
  	}
+ 	.below-content {
+ 		font-size: 14px;
+ 		line-height: 22px;
+ 	}
+	.related-content {
+		margin-top: -85px;
+		margin-bottom: 30px;
+		h2 {
+			font-weight: 800;
+			font-size: 24px;
+			line-height: 30px;
+		}
+		h3 {
+			font-weight: 800;
+			font-size: 18px;
+			line-height: 24px;
+		}
+		ul {
+			li {
+				border-bottom: 1px dotted #ccccc7;
+			}
+		}
+		.loop.news {
+			article {
+				margin: 0;
+				border: 0;
+				section {
+					margin: 0;
+				}
+			}
+		}
+		.links {
+			ul {
+				li {
+					margin: 5px 0;
+				}
+			}
+			h3 {
+				font-size: 12px;
+				line-height: 18px;
+				font-weight: normal;
+				a {
+					color: #666;
+					text-decoration: none;
+					&:hover {
+						color: #333;
+					}
+				}
+			}
+		}
+		> div:first-child {
+			h2 {
+				font-size: 26px;
+				line-height: 32px;
+				color: @beige;
+				text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+				margin-bottom: 50px;
+			}
+		}
+	}
+	.single-section {
+		margin-bottom: 30px;
+		h2 {
+			font-family: "Black Ops One";
+			font-weight: normal;
+			font-size: 26px;
+			line-height: 30px;
+		}
+	}
+	.accidents {
+	}
+	.multimedia {
+	}
  }
 
 .single-platform {
 	.platform-content {
 		.platform-data {
-			padding: 15px 30px;
 			.platform-status {
 				//.border-radius(5px);
 				padding: 0 0 10px;
@@ -877,75 +956,6 @@ header#masthead {
 					}
 				}
 			}
-		}
-		.related-content {
-			margin-top: -85px;
-			margin-bottom: 30px;
-			h2 {
-				font-weight: 800;
-				font-size: 24px;
-				line-height: 30px;
-			}
-			h3 {
-				font-weight: 800;
-				font-size: 18px;
-				line-height: 24px;
-			}
-			ul {
-				li {
-					border-bottom: 1px dotted #ccccc7;
-				}
-			}
-			.loop.news {
-				article {
-					margin: 0;
-					border: 0;
-					section {
-						margin: 0;
-					}
-				}
-			}
-			.links {
-				ul {
-					li {
-						margin: 5px 0;
-					}
-				}
-				h3 {
-					font-size: 12px;
-					line-height: 18px;
-					font-weight: normal;
-					a {
-						color: #666;
-						text-decoration: none;
-						&:hover {
-							color: #333;
-						}
-					}
-				}
-			}
-			> div:first-child {
-				h2 {
-					font-size: 26px;
-					line-height: 32px;
-					color: @beige;
-					text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
-					margin-bottom: 50px;
-				}
-			}
-		}
-		.single-section {
-			margin-bottom: 30px;
-			h2 {
-				font-family: "Black Ops One";
-				font-weight: normal;
-				font-size: 26px;
-				line-height: 30px;
-			}
-		}
-		.accidents {
-		}
-		.multimedia {
 		}
 	}
 }

@@ -95,19 +95,9 @@ function latavelha_get_archive_title() {
 	}
 }
 
-// markers query
-/*
-add_filter('mappress_markers_query', 'latavelha_main_query');
-function latavelha_main_query($query) {
-	if(is_front_page())
-		$query['post_type'] = 'platform';
-
-	return $query;
-}
-*/
 add_filter('mappress_pre_get_markers', 'latavelha_main_query');
 function latavelha_main_query($query) {
-	if($query->is_main_query())
+	if($query->is_main_query() || $query->is_single_map())
 		$query->set('post_type', 'platform');
 }
 

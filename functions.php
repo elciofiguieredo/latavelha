@@ -95,10 +95,10 @@ function latavelha_get_archive_title() {
 	}
 }
 
-add_filter('mappress_pre_get_markers', 'latavelha_main_query');
-function latavelha_main_query($query) {
-	if($query->is_main_query() || $query->is_single_map())
-		$query->set('post_type', 'platform');
+add_filter('pre_get_posts', 'latavelha_main_query');
+function latavelha_main_query($wp_query) {
+	if($wp_query->is_main_query())
+		$wp_query->set('post_type', 'platform');
 }
 
 // lata velha marker icons

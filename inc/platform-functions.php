@@ -10,6 +10,18 @@ function latavelha_get_platform_age($post_id = false) {
 	$year = intval(get_post_meta($post_id, 'construction_date', true));
 	if($year)
 		return intval(date('Y')) - $year;
+
+	return false;
+}
+
+function latavelha_get_platform_age_text($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$age = latavelha_get_platform_age($post_id);
+	if($age !== false)
+		return sprintf(_n('1 year', '%s years', $age, 'latavelha'), $age);
+
+	return false;
 }
 
 function latavelha_is_platform_old($post_id = false) {
@@ -32,6 +44,51 @@ function latavelha_get_platform_status($post_id = false) {
 				return $s;
 		}
 	}
+	return false;
+}
+
+function latavelha_get_platform_accidents_count($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$args = latavelha_get_platform_related_args(array('post_type' => 'accident'), $post_id);
+	$accidents = get_posts($args);
+	return count($accidents);
+}
+
+function latavelha_get_platform_accidents_count_text($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$count = latavelha_get_platform_accidents_count($post_id);
+	return sprintf(_n('1 accident', '%s accidents', $count, 'latavelha'), $count);
+}
+
+function latavelha_get_platform_type($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$type = get_the_terms($post_id, 'platform-type');
+	if($type)
+		return array_shift($type);
+
+	return false;
+}
+
+function latavelha_get_platform_owner($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$owner = get_the_terms($post_id, 'platform-owner');
+	if($owner)
+		return array_shift($owner);
+
+	return false;
+}
+
+function latavelha_get_platform_operator($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$operator = get_the_terms($post_id, 'platform-operator');
+	if($operator)
+		return array_shift($operator);
+
 	return false;
 }
 

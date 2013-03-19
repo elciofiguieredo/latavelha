@@ -30,9 +30,9 @@
 							</div>
 							<div class="info">
 								<?php if(latavelha_get_platform_age()) : ?>
-									<p class="icon time"><?php echo latavelha_get_platform_age() . ' ' . __('years', 'latavelha'); ?></p>
+									<p class="icon time"><?php echo latavelha_get_platform_age_text(); ?></p>
 								<?php endif; ?>
-								<p class="icon warning">0 <?php _e('accidents', 'latavelha'); ?></p>
+								<p class="icon warning"><?php echo latavelha_get_platform_accidents_count_text(); ?></p>
 							</div>
 						</section>
 						<footer class="clearfix">

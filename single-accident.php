@@ -33,7 +33,7 @@
 							<section class="accident-data main-section">
 								<?php the_content(); ?>
 							</section>
-							</div>
+						</div>
 						<section class="below-content">
 							<?php echo $notes; ?>
 						</section>

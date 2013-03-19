@@ -93,7 +93,7 @@ function latavelha_get_archive_title() {
 }
 
 function latavelha_main_query($query) {
-	if(is_front_page() || is_tax('platform-owner') || is_tax('platform-operator'))
+	if(is_front_page() || is_tax('platform-owner') || is_tax('platform-operator') || is_tax('platform-type'))
 		$query['post_type'] = 'platform';
 
 	return $query;

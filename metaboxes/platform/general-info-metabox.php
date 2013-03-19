@@ -36,11 +36,11 @@ function latavelha_platform_general_info_inner_custom_box($post) {
 			<input type="text" id="year_input" name="year" value="<?php echo $year; ?>" />
 		</p>
 		<p>
-			<input type="checkbox" id="location_certainty_input" name="location_certainty" value="1" />
+			<input type="checkbox" id="location_certainty_input" name="location_certainty" value="1" <?php if($location_certainty) echo 'checked'; ?> />
 			<label for="location_certainty_input"><?php _e('Location certainty', 'latavelha'); ?></label>
 		</p>
 		<p>
-			<input type="checkbox" id="brazil_area_input" name="brazil_area" value="1" />
+			<input type="checkbox" id="brazil_area_input" name="brazil_area" value="1" <?php if($brazil_area) echo 'checked'; ?> />
 			<label for="brazil_area_input"><?php _e('Brazil area', 'latavelha'); ?></label>
 		</p>
 	</div>
@@ -68,9 +68,13 @@ function latavelha_platform_general_info_save_postdata($post_id) {
 
 	if(isset($_REQUEST['location_certainty']))
 		update_post_meta($post_id, 'location_certainty', $_REQUEST['location_certainty']);
+	else
+		delete_post_meta($post_id, 'location_certainty');
 
 	if(isset($_REQUEST['brazil_area']))
 		update_post_meta($post_id, 'brazil_area', $_REQUEST['brazil_area']);
+	else
+		delete_post_meta($post_id, 'brazil_area');
 
 }
 

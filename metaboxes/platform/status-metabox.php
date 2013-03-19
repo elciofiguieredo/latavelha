@@ -22,7 +22,7 @@ function latavelha_platform_status_inner_custom_box($post) {
 		<ul>
 			<?php foreach($available_status as $status) : ?>
 				<li>
-					<input type="radio" name="platform_status" name="<?php $status['id']; ?>" id="status_<?php echo $status['id']; ?>_input" <?php if($current_status == $status['id']) echo 'checked'; ?> />
+					<input type="radio" name="platform_status" value="<?php echo $status['id']; ?>" id="status_<?php echo $status['id']; ?>_input" <?php if($current_status == $status['id']) echo 'checked'; ?> />
 					<label for="status_<?php echo $status['id']; ?>_input"><?php echo $status['name']; ?></label>
 				</li>
 			<?php endforeach; ?>

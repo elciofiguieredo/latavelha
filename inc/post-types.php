@@ -73,47 +73,6 @@ function register_cpt_platform() {
     register_post_type( 'platform', $args );
 }
 
-//add_action('init', 'register_cpt_oilwell');
-
-function register_cpt_oilwell() {
-    $labels = array( 
-        'name' => __('Oil wells', 'latavelha'),
-        'singular_name' => __('Oil well', 'latavelha'),
-        'add_new' => __('Add new oil well', 'latavelha'),
-        'add_new_item' => __('Add new oil well', 'latavelha'),
-        'edit_item' => __('Edit oil well', 'latavelha'),
-        'new_item' => __('New oil well', 'latavelha'),
-        'view_item' => __('View oil well'),
-        'search_items' => __('Search oil wells', 'latavelha'),
-        'not_found' => __('No oil well found', 'latavelha'),
-        'not_found_in_trash' => __('No oil well found in the trash', 'latavelha'),
-        'menu_name' => __('Oil wells', 'latavelha')
-    );
-
-    $args = array( 
-        'labels' => $labels,
-        'hierarchical' => false,
-        'description' => __('Oil wells', 'latavelha'),
-        'supports' => array( 'title', 'editor', 'excerpt'),
-
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_position' => 4,
-
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => 'wells',
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => array('slug' => 'wells', 'with_front' => false),
-        'capability_type' => 'post'
-    );
-
-    register_post_type( 'oil-well', $args );
-}
-
 add_action('init', 'register_cpt_accident');
 
 function register_cpt_accident() {

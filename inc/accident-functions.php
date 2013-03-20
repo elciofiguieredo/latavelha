@@ -40,6 +40,9 @@ function latavelha_get_accident_type_name($post_id = false) {
 	global $post;
 	$post_id = $post_id ? $post_id : $post->ID;
 	$type = latavelha_get_accident_type($post_id);
+	if(!$type)
+		return __('Unknown', 'latavelha');
+	
 	return $type->name;
 }
 

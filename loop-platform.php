@@ -38,7 +38,9 @@
 						<footer class="clearfix">
 							<p>
 								<a class="icon info" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php _e('more', 'latavelha'); ?></a>
-								<a class="icon location" href="#"><?php _e('locate on the map', 'latavelha'); ?></a>
+								<?php if(latavelha_has_platform_location()) : ?>
+									<a class="icon location" href="#"><?php _e('locate on the map', 'latavelha'); ?></a>
+								<?php endif; ?>
 							</p>
 						</footer>
 					</article>

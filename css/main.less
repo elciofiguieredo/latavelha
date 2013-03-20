@@ -234,6 +234,14 @@ header#masthead {
 			font-size: 35px;
 			line-height: 40px;
 			float: left;
+			a {
+				color: #fffee9;
+				text-decoration: none;
+			}
+		}
+		h2.map-title {
+			font-size: 28px;
+			line-height: 30px;
 		}
 	}
 	.map-container {
@@ -282,6 +290,24 @@ header#masthead {
 			-webkit-animation-name: map-point-highlight;
 			-webkit-animation-delay: .5s;
 			-webkit-animation-fill-mode: forwards;
+		}
+	}
+	.disable-point {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background:rgba(0,0,0,0.8);
+		text-align: center;
+		padding-top: 100px;
+		span {
+			font-size: 20px;
+			line-height: 20px;
+			color: #111;
+			font-weight: 800;
+			background: #f6f6f6;
+			padding: 3px 6px;
 		}
 	}
 }
@@ -762,10 +788,31 @@ header#masthead {
 		margin-top: -30px;
 		padding-top: 25px;
 		margin-bottom: 30px;
+		&.old-stamp {
+			position: relative;
+			&:after {
+				content: '';
+				position: absolute;
+				width: 149px;
+				height: 149px;
+				background: url(../img/stamp.png);
+				bottom: -30px;
+				right: -30px;
+				opacity: .9;
+			}
+			tr.year,
+			tr.age {
+				td {
+					font-weight: bold;
+					font-size: 120%;
+					color: @darkred;
+				}
+			}
+		}
  		.header {
  			margin-top: -180px;
  			h1 {
-				background: #222;
+				background: #111 url(../img/rusty-bg.png);
 				color: @beige;
 				padding: 10px 15px;
 				margin: 0 0 0 20px;
@@ -774,6 +821,13 @@ header#masthead {
 				font-size: 30px;
 				line-height: 40px;
 				float: left;
+				.border-radius(5px 5px 0 0);
+				text-shadow: 2px 2px 1px #000;
+				max-width: 85%;
+				.box-shadow(~"inset 0 2px 10px rgba(255,255,255,0.05)");
+				border-top: 1px solid #111;
+				border-right: 1px solid #111;
+				border-left: 1px solid #111;
  			}
  			.main-meta {
 				background: #eeeee7 url(../img/rusty-bg.png);
@@ -790,11 +844,20 @@ header#masthead {
 					background-repeat: no-repeat;
 					background-position: left center;
 					margin: 0;
+					a {
+						text-decoration: none;
+					}
 					&.owner {
 						background-image: url(../img/icons/person-big.png);
 					}
 					&.operator {
 						background-image: url(../img/icons/gear-big.png);
+					}
+					&.platform {
+						background-image: url(../img/icons/platform.png);
+					}
+					&.date {
+						background-image: url(../img/icons/calendar.png);
 					}
 					span {
 						font-weight: 800;
@@ -889,6 +952,16 @@ header#masthead {
 	}
  }
 
+ .single-accident,
+ .single-platform {
+ 	.map-title {
+ 		margin-left: 20px !important;
+ 	}
+ 	.hentry {
+ 		margin-bottom: 40px;
+ 	}
+ }
+
  .single-post,
  .single-page {
  	.main-container {
@@ -969,6 +1042,10 @@ header#masthead {
 				margin: 0 0 20px;
 				table {
 					width: 100%;
+					a {
+						text-decoration: none;
+						border-bottom: 1px dotted #999;
+					}
 					tr {
 						border-bottom: 1px dotted #ccccc7;
 						th {

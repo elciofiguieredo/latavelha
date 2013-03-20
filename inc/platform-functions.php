@@ -33,6 +33,17 @@ function latavelha_is_platform_old($post_id = false) {
 		return false;
 }
 
+function latavelha_has_platform_location($post_id = false) {
+	global $post;
+	$post_id = $post_id ? $post_id : $post->ID;
+	$lat = get_post_meta($post_id, 'geocode_latitude', true);
+	$lon = get_post_meta($post_id, 'geocode_longitude', true);
+	if($lat && $lon)
+		return true;
+
+	return false;
+}
+
 function latavelha_get_platform_status($post_id = false) {
 	global $post;
 	$post_id = $post_id ? $post_id : $post->ID;

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php latavelha_map(); ?>
+<?php latavelha_map('<a href="' . get_post_type_archive_link('accident') . '">' . __('Accidents', 'latavelha') . '</a>', false); ?>
 
 <?php if(have_posts()) : the_post(); ?>
 	<section id="platform-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -23,7 +23,7 @@
 								</div>
 								<div class="main-meta clearfix">
 									<?php if($platform) : ?>
-										<p class="platform"><span><?php _e('Platform', 'latavelha'); ?></span><?php echo $platform->post_title; ?></p>
+										<p class="platform"><a href="<?php echo get_permalink($platform->ID); ?>"><span><?php _e('Platform', 'latavelha'); ?></span><?php echo $platform->post_title; ?></a></p>
 									<?php endif; ?>
 									<?php if($date) : ?>
 										<p class="date"><span><?php _e('Date', 'latavelha'); ?></span><?php echo $date; ?></p>
@@ -51,6 +51,9 @@
 								</div>
 							<?php endif; ?>
 						</aside>
+						<?php if(latavelha_get_accident_type()) : ?>
+							<a class="button dark" style="display:block;" href="<?php echo get_term_link(latavelha_get_accident_type(), 'accident-type'); ?>"><?php _e('View all accidents by', 'latavelha'); ?> <?php echo $type_name; ?></a>
+						<?php endif; ?>
 					</div>
 					<?php get_template_part('section', 'attachments'); ?>
 				</article>

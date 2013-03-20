@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php latavelha_map(); ?>
+<?php latavelha_map('<a href="' . get_post_type_archive_link('platform') . '">' . __('Platforms', 'latavelha') . '</a>', false); ?>
 
 <?php if(have_posts()) : the_post(); ?>
 	<section id="platform-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -8,7 +8,7 @@
 			<div class="twelve columns">
 				<article class="platform-content">
 					<div class="seven columns alpha">
-						<div class="map-content-box">
+						<div class="map-content-box <?php if(latavelha_is_platform_old()) echo 'old-stamp'; ?>">
 							<header class="platform-header header">
 								<div class="clearfix">
 									<h1><?php the_title(); ?></h1>
@@ -66,11 +66,11 @@
 												</tr>
 											<?php endif; ?>
 											<?php if($construction_date) : ?>
-												<tr>
+												<tr class="year">
 													<th><?php _e('Construction year', 'latavelha'); ?></th>
 													<td><?php echo $construction_date; ?></td>
 												</tr>
-												<tr>
+												<tr class="age">
 													<th><?php _e('Age', 'latavelha'); ?></th>
 													<td><?php echo latavelha_get_platform_age_text(); ?></td>
 												</tr>

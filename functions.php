@@ -92,13 +92,24 @@ function latavelha_get_archive_title() {
 	}
 }
 
-function latavelha_main_query($query) {
-	if(is_front_page() || is_tax('platform-owner') || is_tax('platform-operator') || is_tax('platform-type'))
+function latavelha_queries($query) {
+	if(is_front_page())
 		$query['post_type'] = 'platform';
+
+	if(is_tax())
+		$query['post_type'] = 'any';
 
 	return $query;
 }
-add_action('mappress_markers_query', 'latavelha_main_query');
+add_filter('mappress_markers_query', 'latavelha_queries');
+
+function latavelha_marker_extent($extent) {
+	if(is_post_type_archive(array('platform', 'accident')))
+		$extent = false;
+
+	return $extent;
+}
+add_filter('mappress_use_marker_extent', 'latavelha_marker_extent');
 
 // lata velha marker icons
 add_filter('mappress_marker_icon', 'latavelha_markers_icon');

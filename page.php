@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="container main-container">
-	<div class="twelve columns">
+	<div class="eight columns">
 		<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 			<section id="post-<?php the_ID(); ?>" class="main-section clearfix">
 				<article>
@@ -14,6 +14,12 @@
 				</article>
 			</section>
 		<?php endwhile; endif; ?>
+	</div>
+	<div class="four columns">
+		<aside id="sidebar">
+				<h2>Hi</h2>
+			</div>
+		</aside>
 	</div>
 </div>
 

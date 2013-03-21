@@ -400,19 +400,25 @@ header#masthead {
 			color: @darkred;
 			border-bottom: 1px solid @darkred;
 			margin-bottom: 20px;
+			a {
+				color: @darkred;
+				text-decoration: none;
+				opacity: .3;
+				&:hover {
+					opacity: 1;
+				}
+			}
+			.sep {
+				font-size: 8px;
+				line-height: 16px;
+				padding: 0 5px;
+				opacity: .3;
+			}
 		}
 		&.archive {
 			h2 {
 				border: 0;
 				text-transform: none;
-				a {
-					color: @darkred;
-					text-decoration: none;
-					opacity: .3;
-					&:hover {
-						opacity: 1;
-					}
-				}
 			}
 		}
 	}
@@ -1041,10 +1047,10 @@ header#masthead {
 			text-decoration: none;
 		}
 		.sep {
-		font-size: 8px;
-		line-height: 16px;
-		padding: 0 5px;
-		opacity: .6;
+			font-size: 8px;
+			line-height: 16px;
+			padding: 0 5px;
+			opacity: .6;
 		}
 	}
 	h1 {

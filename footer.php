@@ -1,7 +1,9 @@
 <footer id="site-footer">
 	<div class="container">
 		<div class="nine columns">
-			&nbsp;
+			<nav class="footer-links">
+				<?php wp_nav_menu(); ?>
+			</nav>
 		</div>
 		<div class="three columns">
 			<div class="credits">

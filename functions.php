@@ -126,7 +126,7 @@ function latavelha_get_archive_title() {
 function latavelha_queries($query) {
 	if(is_front_page())
 		$query['post_type'] = 'platform';
-	
+
 	return $query;
 }
 add_filter('mappress_markers_query', 'latavelha_queries');
@@ -145,12 +145,12 @@ function latavelha_markers_icon($marker) {
 	global $post;
 	if(get_post_type() == 'platform') {
 		$marker = array(
-			'url' => get_stylesheet_directory_uri() . '/img/icons/mapa_plataforma_nova.png',
+			'url' => get_stylesheet_directory_uri() . '/img/markers/platform_new.png',
 			'width' => 32,
 			'height' => 47
 		);
 		if(latavelha_is_platform_old()) {
-			$marker['url'] = get_stylesheet_directory_uri() . '/img/icons/mapa_plataforma_velha.png';
+			$marker['url'] = get_stylesheet_directory_uri() . '/img/markers/platform_old.png';
 		}
 	} elseif(get_post_type() == 'accident') {
 		$marker = array(
@@ -161,6 +161,31 @@ function latavelha_markers_icon($marker) {
 	}
 	return $marker;
 }
+
+// map legends
+
+function latavelha_map_legends($legend) {
+	global $wp_query;
+	ob_start(); ?>
+	<ul class="platforms">
+		<li class="platform-new"><?php _e('Platforms with <strong>less</strong> than 30 years', 'latavelha'); ?></li>
+		<li class="platform-old"><?php _e('Platforms with <strong>more</strong> than 30 years', 'latavelha'); ?></li>
+	</ul>
+	<ul class="accidents">
+		<li class="accident-blowout"><?php _e('Blow-out', 'latavelha'); ?></li>
+		<li class="accident-leak"><?php _e('Leak', 'latavelha'); ?></li>
+		<li class="accident-default"><?php _e('Others', 'latavelha'); ?></li>
+	</ul>
+	<ul class="oil-wells">
+		<li class="well-warning"><?php _e('Oil wells <strong>with</strong> accident history', 'latavelha'); ?></li>
+		<li class="well"><?php _e('Oil wells <strong>without</strong> accident history', 'latavelha'); ?></li>
+	</ul>
+	<?php
+	$legend = ob_get_contents();
+	ob_end_clean();
+	return $legend;
+}
+add_filter('mappress_map_legend', 'latavelha_map_legends');
 
 // lata velha marker class
 add_filter('mappress_marker_class', 'latavelha_markers_class');

@@ -263,7 +263,73 @@ header#masthead {
 			right: 80px;
 		}
 		.map-tooltip {
+			border: 0;
 			top: 70px;
+			padding: 15px;
+			background: #fff url(../img/rusty-bg.png);
+			.border-radius(0);
+			h2 {
+				font-size: 20px;
+				line-height: 25px;
+			}
+			h3 {
+				font-size: 18px;
+				line-height: 22px;
+			}
+			font-size: 12px;
+		}
+		.map-legends {
+			padding: 0;
+			border: 0;
+			margin: 0;
+			background: transparent;
+			.map-legend {
+				padding: 0;
+			}
+			ul {
+				padding: 11px 15px;
+				background: #fff url(../img/rusty-bg.png);
+				font-size: 12px;
+				margin: 0;
+				li {
+					min-height: 25px;
+					padding-left: 27px;
+					margin: 4px 0;
+					background-position: center left;
+					background-repeat: no-repeat;
+					&.platform-new {
+						background-image: url(../img/icons/leg_plataforma_nova.png);
+					}
+					&.platform-old {
+						background-image: url(../img/icons/leg_plataforma_velha.png);
+					}
+					&.well-warning {
+						background-image: url(../img/icons/leg_well_warning.png);
+					}
+					&.well {
+						background-image: url(../img/icons/leg_well.png);
+					}
+					&.accident-blowout {
+						background-image: url(../img/icons/leg_accident_blowout.png);
+					}
+					&.accident-leak {
+						background-image: url(../img/icons/leg_accident_leak.png);
+					}
+					&.accident-default {
+						background-image: url(../img/icons/leg_accident_default.png);
+					}
+				}
+				&.oil-wells {
+					color: @beige;
+					background: #444 url(../img/rusty-bg.png);
+					strong {
+						color: @beige;
+					}
+				}
+				&.accidents {
+					display: none;
+				}
+			}
 		}
 	}
 	.map-widgets {
@@ -312,10 +378,34 @@ header#masthead {
 	}
 }
 
+.search-results {
+	#map {
+		.accidents,
+		.platforms {
+			display: block !important;
+		}
+	}
+}
+
+.post-type-archive-accident,
+.tax-accident-type {
+	#map {
+		.accidents {
+			display: block !important;
+		}
+		.platforms {
+			display: none !important;
+		}
+	}
+}
+
+
+
 .single {
 	#map {
 		height: 350px;
-		.map-widgets {
+		.map-widgets,
+		.map-legends {
 			display: none !important;
 		}
 	}
@@ -482,9 +572,9 @@ header#masthead {
 					height: 29px !important;
 					margin-top: -29px !important;
 					margin-left: -15px !important;
-					background: url(../img/icons/platform_new_small.png) !important;
+					background: url(../img/markers/platform_new_small.png) !important;
 					&.old-platform {
-						background: url(../img/icons/platform_old_small.png) !important;
+						background: url(../img/markers/platform_old_small.png) !important;
 					}
 					.popup {
 						bottom: 39px !important;

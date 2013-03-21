@@ -12,4 +12,22 @@ jQuery(document).ready(function($) {
             });
         }, 3000);
     }
+
+    // center map
+    $('.center-map').click(function() {
+
+        var lat = $(this).data('lat');
+        var lon = $(this).data('lon');
+        var zoom = $(this).data('zoom');
+        if(lat && lon && zoom) {
+            $('html,body').stop().animate({
+                scrollTop: $('#map').offset().top
+            }, 400, function() {
+                mappress.map.centerzoom({lat: lat, lon: lon}, zoom, true);
+            });
+        }
+
+        return false;
+
+    });
 });

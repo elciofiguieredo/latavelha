@@ -35,7 +35,13 @@
 			<p>
 				<a class="icon info" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php _e('more', 'latavelha'); ?></a>
 				<?php if(latavelha_has_platform_location() && !is_single()) : ?>
-					<a class="icon location" href="#"><?php _e('locate on the map', 'latavelha'); ?></a>
+					<?php
+					$coords = mappress_get_marker_coordinates();
+					$lon = $coords[0];
+					$lat = $coords[1];
+					$zoom = 10;
+					?>
+					<a class="icon location center-map" data-lat="<?php echo $lat; ?>" data-lon="<?php echo $lon; ?>" data-zoom="<?php echo $zoom; ?>" href="#"><?php _e('view on map', 'latavelha'); ?></a>
 				<?php endif; ?>
 			</p>
 		</footer>

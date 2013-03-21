@@ -589,6 +589,57 @@ header#masthead {
 		width: 220px;
 		text-align: center;
 	}
+	.download-section {
+		display: none;
+		padding: 30px;
+		background: @beige;
+		margin: 5px;
+		margin-top: 30px;
+		.box-shadow(0 0 0 5px rgba(255,255,255,0.2));
+		position: relative;
+		.fork {
+			width: 149px;
+			height: 149px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			text-indent: -9999px;
+			background: url(../img/fork.png);
+		}
+		ul.download-list {
+			margin: 0;
+			li {
+				margin: 0;
+				.download-item {
+					width: 100%;
+					margin: 0 0 15px;
+					padding: 0 0 15px;
+					border-bottom: 1px dotted #ddd;
+					&:last-child {
+						margin: 0;
+						padding: 0;
+						border: 0;
+					}
+					li {
+						margin-right: 20px;
+						float: left;
+						&.title {
+							width: 30%;
+							font-size: 18px;
+							line-height: 28px;
+							font-weight: 800;
+							border-right: 1px dotted #ddd;
+						}
+						.button {
+							padding: 5px 7px;
+							width: auto;
+							margin: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 /*

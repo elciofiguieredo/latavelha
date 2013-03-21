@@ -4,6 +4,10 @@
  * Theme setup
  */
 function latavelha_setup() {
+
+	// text domain
+	load_child_theme_textdomain('latavelha', get_stylesheet_directory() . '/languages');
+
 	include(STYLESHEETPATH . '/inc/taxonomies.php');
 	include(STYLESHEETPATH . '/inc/post-types.php');
 	include(STYLESHEETPATH . '/inc/widgets.php');

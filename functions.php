@@ -6,6 +6,21 @@
 function latavelha_setup() {
 	include(STYLESHEETPATH . '/inc/taxonomies.php');
 	include(STYLESHEETPATH . '/inc/post-types.php');
+	include(STYLESHEETPATH . '/inc/widgets.php');
+
+	//sidebars
+	register_sidebar(array(
+		'name' => __('Single news sidebar', 'latavelha'),
+		'id' => 'single-news',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>'
+	));
+	register_sidebar(array(
+		'name' => __('Generic sidebar', 'latavelha'),
+		'id' => 'generic',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>'
+	));
 
 	// importers
 	//include(STYLESHEETPATH . '/inc/platform-importer.php');
@@ -84,6 +99,22 @@ function latavelha_map($title = false, $single = true) {
 	<?php
 }
 
+// template redirects
+
+function latavelha_template_redirect() {
+	global $wp_query;
+	if(is_search()) {
+		if($wp_query->get('post_type') == 'platform') {
+			include(STYLESHEETPATH . '/archive.php');
+			exit();
+		} elseif($wp_query->get('post_type') == 'post') {
+			include(STYLESHEETPATH . '/news.php');
+			exit();
+		}
+	}
+}
+add_action('template_redirect', 'latavelha_template_redirect');
+
 function latavelha_get_archive_title() {
 	if(is_post_type_archive()) {
 		return post_type_archive_title('', false);
@@ -96,7 +127,7 @@ function latavelha_queries($query) {
 	if(is_front_page())
 		$query['post_type'] = 'platform';
 
-	if(is_tax())
+	if(is_tax() || is_search())
 		$query['post_type'] = 'any';
 
 	return $query;

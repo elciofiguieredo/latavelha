@@ -7,7 +7,10 @@ REGISTER POST TYPES
 // set news archive page
 
 function latavelha_news_archive_rule($wp_rewrite) {
-    $news_rule = array('news$' => 'index.php?news=1');
+    $news_rule = array(
+        'news$' => 'index.php?news=1',
+        'news/page/?([0-9]{1,})/?$' => 'index.php?news=1&paged=' . $wp_rewrite->preg_index(1)
+    );
 
     $wp_rewrite->rules = $news_rule + $wp_rewrite->rules;
 }
@@ -31,6 +34,13 @@ add_action('template_redirect', 'latavelha_news_redirect');
 function latavelha_get_news_archive_link() {
     return home_url('/news/');
 }
+
+function latavelha_news_set_query($wp_query) {
+    if($wp_query->get('news')) {
+        $wp_query->set('post_type', 'post');
+    }
+}
+add_action('pre_get_posts', 'latavelha_news_set_query');
 
 add_action('init', 'register_cpt_platform');
 

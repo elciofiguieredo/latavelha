@@ -31,7 +31,7 @@
 				</header>
 				<div class="container">
 					<div class="seven columns">
-						<section>
+						<section id="post-content">
 							<?php the_content(); ?>
 						</section>
 						<section id="comments">

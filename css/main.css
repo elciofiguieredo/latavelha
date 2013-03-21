@@ -65,7 +65,7 @@ header#masthead p.navigate{margin-top:50px;text-align:right;font-size:15px;}head
 .card.accident.details article header{position:static;}.card.accident.details article header .icon{float:none;top:0;bottom:20px;left:10px;width:70px;height:auto;}
 .card.accident.details article section{display:block;}.card.accident.details article section p{margin:0;}
 .loop.news li{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #ddd;}.loop.news li:last-child{border:0;}
-.loop.accident li{width:33%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0 20px 20px 0;float:left;margin:0;}.loop.accident li .card{padding:20px;background:#ffffff url(../img/rusty-bg.png);}
+.loop.accident li.masonry-item{width:33%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0 20px 20px 0;float:left;margin:0;}.loop.accident li.masonry-item .card{padding:20px;background:#ffffff url(../img/rusty-bg.png);}
 .loop.accident.details li{height:auto;}
 .loop.attachments li{width:25%;margin:0;padding:5px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}.loop.attachments li img{width:100%;height:auto;display:block;}
 .navigation .wp-paginate{float:right;margin-bottom:30px;}.navigation .wp-paginate .current{background:#333;border-color:#333;-webkit-box-shadow:0 0 2px rgba(0, 0, 0, 0);-khtml-box-shadow:0 0 2px rgba(0, 0, 0, 0);-moz-box-shadow:0 0 2px rgba(0, 0, 0, 0);-o-box-shadow:0 0 2px rgba(0, 0, 0, 0);box-shadow:0 0 2px rgba(0, 0, 0, 0);}

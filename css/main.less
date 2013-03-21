@@ -84,6 +84,7 @@ input[type=submit] {
 	text-shadow: 1px 1px 1px #fff;
 	cursor: pointer;
 	color: #333;
+	border: 0;
 	.transition(all .2s ease-in-out);
 	.font-smoothing(antialiased);
 	text-rendering: optimizeLegibility;
@@ -337,6 +338,14 @@ header#masthead {
 		right: auto;
 		top: auto;
 		bottom: 20px;
+		.map-widget {
+			background: #fff url(../img/rusty-bg.png);
+			.border-radius(0);
+			border: 0;
+			li {
+				border-color: #e0e0e0;
+			}
+		}
 	}
 	.highlight-point {
 		position: absolute;
@@ -592,6 +601,16 @@ header#masthead {
 				color: #fffee9;
 				font-family: "Black Ops One";
 				font-weight: normal;
+				font-size: 18px;
+				line-height: 22px;
+				margin-bottom: 10px;
+			}
+			p {
+				margin: 0 0 5px;
+				color: #eeeee9;
+				strong {
+					color: #eeeee9;
+				}
 			}
 		}
 	}

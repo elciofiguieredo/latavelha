@@ -126,10 +126,7 @@ function latavelha_get_archive_title() {
 function latavelha_queries($query) {
 	if(is_front_page())
 		$query['post_type'] = 'platform';
-
-	if(is_tax() || is_search())
-		$query['post_type'] = 'any';
-
+	
 	return $query;
 }
 add_filter('mappress_markers_query', 'latavelha_queries');

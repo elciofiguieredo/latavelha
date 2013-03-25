@@ -27,20 +27,30 @@
 <body <?php body_class(get_bloginfo('language')); ?>>
 	<header id="masthead">
 		<div class="container">
-			<div class="four columns">
-				<p class="desc">Plataformas de perfuração de petróleo com mais de 30 anos podem apresentar danos e riscos severos ao meio ambiente</p>
-			</div>
-			<div class="four columns">
+			<div class="site-title five columns">
+				<h2 class="greenpeace">
+					<a href="http://greenpeace.org/" target="_blank" rel="external">
+						Greenpeace
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/greenpeace.png" class="scale-with-grid" />
+					</a>
+				</h2>
 				<h1>
 					<a href="<?php echo home_url('/'); ?>" title="<?php bloginfo('name'); ?>">
 						<?php bloginfo('name'); ?>
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo.png" />
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/logo2.png" class="scale-with-grid" />
 					</a>
 				</h1>
 			</div>
+			<?php /*
 			<div class="four columns">
+				<p class="desc">Plataformas de perfuração de petróleo com mais de 30 anos podem apresentar danos e riscos severos ao meio ambiente</p>
+			</div>
+			*/ ?>
+			<div class="five columns offset-by-two">
 				<p class="desc">O Greenpeace mapeou as plataformas antigas da região do pré-sal e apresenta seus dados e histórico de acidentes</p>
+				<?php /*
 				<p class="navigate"><a href="<?php echo get_post_type_archive_link('platform'); ?>" title="<?php _e('Navigate through the platforms', 'latavelha'); ?>"><?php _e('Navigate through the platforms', 'latavelha'); ?></a></p>
+				*/ ?>
 			</div>
 	</header>
 	<nav id="main-nav" class="clearfix">

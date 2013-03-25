@@ -27,7 +27,7 @@ function latavelha_accident_general_info_inner_custom_box($post) {
 		</p>
 		<p>
 			<label for="accident_date_input"><?php _e('Date', 'latavelha'); ?></label>
-			<input type="text" id="accident_date_input" name="accident_link" size="20" value="<?php echo $date; ?>" />
+			<input type="text" id="accident_date_input" name="accident_date" size="20" value="<?php echo $date; ?>" />
 		</p>
 		<p>
 			<label for="accident_notes_input"><?php _e('Notes', 'latavelha'); ?></label><br/>
@@ -51,7 +51,7 @@ function latavelha_accident_general_info_save_postdata($post_id) {
 		update_post_meta($post_id, 'accident_link', $_REQUEST['accident_link']);
 
 	if(isset($_REQUEST['accident_date']))
-		update_post_meta($post_id, 'accident_link', $_REQUEST['accident_date']);
+		update_post_meta($post_id, 'accident_date', $_REQUEST['accident_date']);
 
 	if(isset($_REQUEST['accident_notes']))
 		update_post_meta($post_id, 'accident_notes', $_REQUEST['accident_notes']);

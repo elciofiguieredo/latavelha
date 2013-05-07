@@ -7,13 +7,13 @@
 			<li>
 				<ul class="download-item clearfix">
 					<li class="title"><?php _e('Platforms', 'latavelha'); ?></li>
-					<li class="format"><a href="<?php echo get_post_type_archive_link('platform'); ?>geojson/" target="_blank" class="button">geojson</a></li>
+					<li class="format"><a href="<?php echo get_post_type_archive_link('platform'); ?>?geojson" target="_blank" class="button">geojson</a></li>
 					<li class="format"><a href="#" class="button">csv</a></li>
 					<li class="format"><a href="<?php echo get_post_type_archive_feed_link('platform'); ?>" class="button">rss</a></li>
 				</ul>
 				<ul class="download-item clearfix">
 					<li class="title"><?php _e('Accidents', 'latavelha'); ?></li>
-					<li class="format"><a href="<?php echo get_post_type_archive_link('accident'); ?>geojson/" target="_blank" class="button">geojson</a></li>
+					<li class="format"><a href="<?php echo get_post_type_archive_link('accident'); ?>?geojson" target="_blank" class="button">geojson</a></li>
 					<li class="format"><a href="#" class="button">csv</a></li>
 					<li class="format"><a href="<?php echo get_post_type_archive_feed_link('accident'); ?>" class="button">rss</a></li>
 				</ul>

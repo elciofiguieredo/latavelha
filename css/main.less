@@ -1059,6 +1059,22 @@ header#masthead {
 	}
 }
 
+@media only screen and (max-width: 959px) and (min-width: 768px) {
+	.loop.accident {
+		li.masonry-item {
+			width: 50%;
+		}
+	}	
+}
+
+@media only screen and (max-width: 767px) {
+	.loop.accident {
+		li.masonry-item {
+			width: 100%;
+		}
+	}
+}
+
 .loop.attachments {
 	li {
 		width: 25%;
@@ -1311,6 +1327,23 @@ header#masthead {
  		margin-bottom: 40px;
  	}
  }
+
+@media only screen and (max-width: 767px) {
+	.single {
+		.related-content {
+			margin-top: 0;
+			> div:first-child {
+				h2 {
+					font-size: 26px;
+					line-height: 32px;
+					color: inherit;
+					margin-bottom: 20px;
+					text-shadow: 0 0 0;
+				}
+			}
+		}
+	}
+}
 
 .page-header {
 	border-bottom: 1px dotted #999;

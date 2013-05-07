@@ -54,38 +54,6 @@ include(STYLESHEETPATH . '/metaboxes/metaboxes.php');
 include(STYLESHEETPATH . '/inc/platform-functions.php');
 include(STYLESHEETPATH . '/inc/accident-functions.php');
 
-// register geocode metabox
-add_action('add_meta_boxes', 'latavelha_geocode_metaboxes');
-function latavelha_geocode_metaboxes() {
-	// platform
-	add_meta_box(
-		'geocoding-address',
-		__('Address and geolocation', 'latavelha'),
-		'geocoding_inner_custom_box',
-		'platform',
-		'advanced',
-		'high'
-	);
-	// accident
-	add_meta_box(
-		'geocoding-address',
-		__('Address and geolocation', 'latavelha'),
-		'geocoding_inner_custom_box',
-		'accident',
-		'advanced',
-		'high'
-	);
-	// oil well
-	add_meta_box(
-		'geocoding-address',
-		__('Address and geolocation', 'latavelha'),
-		'geocoding_inner_custom_box',
-		'oil-well',
-		'advanced',
-		'high'
-	);
-}
-
 function latavelha_map($title = false, $single = true) {
 	if($single)
 		$tag = 'h1';
@@ -98,7 +66,7 @@ function latavelha_map($title = false, $single = true) {
 				<<?php echo $tag; ?> class="map-title"><?php echo $title; ?></<?php echo $tag; ?>>
 			<?php endif; ?>
 		</div></div>
-		<?php mappress_get_map_featured(); ?>
+		<?php mappress_featured(true, true); ?>
 	</section>
 	<?php
 }
@@ -133,7 +101,7 @@ function latavelha_queries($query) {
 
 	return $query;
 }
-add_filter('mappress_markers_query', 'latavelha_queries');
+add_filter('mappress_marker_query', 'latavelha_queries');
 
 function latavelha_marker_extent($extent) {
 	if(is_post_type_archive(array('platform', 'accident')))
@@ -227,5 +195,21 @@ function latavelha_accident_order($query) {
 	return $query;
 }
 add_filter('pre_get_posts', 'latavelha_accident_order');
+
+function latavelha_platform_order($query) {
+	$vars = &$query->query_vars;
+	if($vars['post_type'] == 'platform') {
+		$vars['orderby'] = 'meta_value_num';
+		$vars['meta_key'] = 'construction_date';
+		$vars['order'] = 'ASC';
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'latavelha_platform_order');
+
+function latavelha_use_map_query() {
+	return false;
+}
+add_filter('mappress_use_map_query', 'latavelha_use_map_query');
 
 ?>

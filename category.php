@@ -40,6 +40,4 @@
 	</section>
 </div>
 
-<?php get_template_part('section', 'data'); ?>
-
 <?php get_footer(); ?>

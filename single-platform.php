@@ -109,7 +109,7 @@
 							query_posts($args);
 							if(have_posts()) : ?>
 								<div class="news">
-									<h2><?php _e('Platform news', 'latavelha'); ?></h2>
+									<h2><?php _e('News', 'latavelha'); ?></h2>
 									<?php get_template_part('loop', 'post'); ?>
 								</div>
 							<?php endif; ?>

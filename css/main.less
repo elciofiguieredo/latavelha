@@ -140,14 +140,16 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: 800;
 }
 
+.displaying-map header#masthead,
 header#masthead {
 	width: 100%;
+	height: auto;
 	background: url(../img/header.jpg) top center no-repeat;
 	position: relative;
 	z-index: 3;
 	.site-title {
 		position: relative;
-		margin: 30px 0;
+		margin: 20px 0;
 		h1 {
 			padding: 0;
 			a {
@@ -162,25 +164,21 @@ header#masthead {
 		.greenpeace {
 			position: absolute;
 			top: 35px;
-			left: 93px;
+			right: 30px;
 			width: 100px;
 			a {
 				text-indent: -9999px;
 				display: block;
 				line-height: 0px;
-				opacity: .7;
 				img {
 					display: block;
-				}
-				&:hover {
-					opacity: 1;
 				}
 			}
 		}
 	}
 	p.desc {
 		font-weight: 800;
-		margin: 95px 0 0;
+		margin: 75px 0 0;
 		font-size: 12px;
 		line-height: 21px;
 		text-align: justify;
@@ -198,6 +196,40 @@ header#masthead {
 			&:hover {
 				color: #000;
 			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.displaying-map header#masthead,
+	header#masthead {
+		.site-title {
+			.greenpeace {
+				right: 103px;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.displaying-map header#masthead,
+	header#masthead {
+		.site-title {
+			.greenpeace {
+				right: 0px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.displaying-map header#masthead,
+	header#masthead {
+		.site-title {
+			margin-bottom: 0;
+		}
+		p.desc {
+			margin: 20px 0;
 		}
 	}
 }
@@ -291,20 +323,28 @@ header#masthead {
 	.map-container {
 		width: 100%;
 		height: 100%;
+		position: relative;
+		.map {
+			width: 100%;
+			height: 100%;
+		}
 		.zoomout {
 			left: auto;
 			top: 20px;
 			right: 39px;
+			margin: 0;
 		}
 		.zoomin {
 			left: auto;
 			top: 20px;
 			right: 10px;
+			margin: 0;
 		}
 		.map-fullscreen {
 			left: auto;
 			top: 20px;
 			right: 80px;
+			margin: 0;
 		}
 		.map-tooltip {
 			border: 0;
@@ -583,29 +623,30 @@ header#masthead {
 }
 
 #info-box {
-	background: @green url(../img/rusty-bg.png);
+	//background: @green url(../img/rusty-bg.png);
 	padding: 40px 0;
-	.box-shadow(0 0 4px rgba(0,0,0,0.2));
 	h2 {
 		font-family: "Black Ops One";
 		font-weight: normal;
-		color: #333;
-		margin: 0 0 30px;
+		color: #f0f0f0;
+		margin: 0 0 10px;
+		font-size: 20px;
 		line-height: 35px;
-		text-shadow: 2px 2px 1px darken(@green, 10%);
+		text-shadow: 2px 2px 1px #000;
 	}
 	p {
-		font-size: 16px;
-		line-height: 24px;
+		font-size: 12px;
+		line-height: 21px;
 		font-weight: 600;
-		color: #444;
-		text-shadow: 1px 1px 1px darken(@green, 10%);
+		color: #999;
+		text-shadow: 1px 1px 1px #000;
 	}
 	a.button {
-		float: right;
-		margin: 20px 0 20px 60px;
-		padding: 17px 0;
-		width: 220px;
+		float: none;
+		display: block;
+		margin: 20px 0 0;
+		padding: 10px 0;
+		width: 110px;
 		text-align: center;
 	}
 	.download-section {
@@ -1161,6 +1202,8 @@ header#masthead {
 	.related-content {
 		margin-top: -85px;
 		margin-bottom: 30px;
+		position: relative;
+		z-index: 100;
 		h2 {
 			font-weight: 800;
 			font-size: 24px;
@@ -1460,7 +1503,6 @@ header#masthead {
 #site-footer {
 	background: #1f1f1f;
 	width: 100%;
-	height: 250px;
 	.footer-links {
 		margin: 40px 0;
 		a {

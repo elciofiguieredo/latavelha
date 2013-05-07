@@ -8,14 +8,7 @@
 			<a class="button dark" href="<?php echo get_post_type_archive_link('platform'); ?>"><?php _e('View all platforms', 'latavelha'); ?></a>
 			<h2><?php _e('Oldests platforms', 'latavelha'); ?></h2>
 			<?php
-			$platform_args = array(
-				'post_type' => 'platform',
-				'posts_per_page' => 6,
-				'orderby' => 'meta_value_num',
-				'meta_key' => 'construction_date',
-				'order' => 'ASC'
-			);
-			query_posts($platform_args);
+			query_posts('post_type=platform&posts_per_page=6');
 			?>
 			<?php get_template_part('loop', 'platform'); ?>
 			<?php wp_reset_query(); ?>
@@ -43,7 +36,5 @@
 		</section>
 	</div>
 </div>
-
-<?php get_template_part('section', 'data'); ?>
 
 <?php get_footer(); ?>

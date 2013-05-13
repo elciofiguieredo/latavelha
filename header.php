@@ -29,7 +29,7 @@
 		<div class="container">
 			<div class="site-title five columns">
 				<h2 class="greenpeace">
-					<a href="http://greenpeace.org/" target="_blank" rel="external">
+					<a href="http://www.greenpeace.org.br/" target="_blank" rel="external">
 						Greenpeace
 						<img src="<?php echo get_stylesheet_directory_uri(); ?>/img/greenpeace.png" class="scale-with-grid" />
 					</a>
